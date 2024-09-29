@@ -19,9 +19,26 @@ Route::get('/lecturer/dashboard',[LecturerController::class,'loadLecturerDashboa
     ->name('lecturer-dashboard')
     ->middleware('lecturer');
 
-Route::get('/admin/dashboard',[AdminController::class,'loadAdminDashboard'])
-    ->name('admin-dashboard')
-    ->middleware('admin');
+
+Route::group(['middleware' => 'admin'],function()
+{
+    Route::get('/admin/dashboard',[AdminController::class,'loadAdminDashboard'])
+    ->name('admin-dashboard');
+
+    Route::get('/admin/lecturers',[AdminController::class,'loadLecturerListing'])
+    ->name('admin-lecturers');
+    
+    Route::get('/admin/create/lecturer',[AdminController::class,'loadLecturerForm']);
+
+    Route::get('/admin/units',[AdminController::class,'loadAllUnits'])
+    ->name('admin-units');
+
+    Route::get('/admin/create/unit',[AdminController::class,'loadUnitForm']);
+
+});
+
+
+
 
 Route::get('/academic_admin/dashboard',[AcademicAdminController::class,'loadAcademicAdminDashboard'])
     ->name('academic_admin-dashboard')

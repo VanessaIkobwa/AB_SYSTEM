@@ -11,4 +11,23 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+    public function loadLecturerListing()
+    {
+        return view('admin.lecturer-listing');
+    }
+    public function loadLecturerForm()
+    {
+        return view('admin.lecturer-form');
+    }
+
+    public function loadAllUnits()
+    {
+        return view('admin.units');
+    }
+
+    public function loadUnitForm()
+    {
+        return view('admin.unit-form');
+        
+    }
 }
