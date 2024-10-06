@@ -34,6 +34,8 @@ Route::group(['middleware' => 'admin'],function()
     ->name('admin-units');
 
     Route::get('/admin/create/unit',[AdminController::class,'loadUnitForm']);
+    Route::get('/edit/unit/{unit}',[AdminController::class,'loadEditUnitForm']);
+
 
 });
 

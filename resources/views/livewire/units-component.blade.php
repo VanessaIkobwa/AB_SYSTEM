@@ -84,10 +84,24 @@
 
                               <td class="h-px w-auto whitespace-nowrap">
                     <div class="px-6 py-2">
-                    <span class="font-semibold text-sm text-gray-800 dark:text-neutral-200">{{$item->unit_name}}</span>
-                                  
+                    <span class="font-semibold text-sm text-gray-800 dark:text-neutral-200">{{$item->unit_name}}</span>   
                                 </div>
                               </td>
+
+                              <td class="h-px w-auto whitespace-nowrap">
+                              <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="/edit/unit/{{$item->id}}">
+                                Edit
+                              </a>
+                              </td>
+
+                              <td class="h-px w-auto whitespace-nowrap">
+                              <buttom wire:confirm.prevent="Are you sure?" wire:click="delete({{$item->id}})" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                                Delete
+                              </button>
+                              </td>
+
+                               
+
                               </tr>
     @endforeach
 

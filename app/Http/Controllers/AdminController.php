@@ -30,4 +30,10 @@ class AdminController extends Controller
         return view('admin.unit-form');
         
     }
+    public function loadEditUnitForm($unit_id)
+    {
+        $id = $unit_id;
+        return view('admin.edit-unit-form',compact('id'));
+        
+    }
 }
