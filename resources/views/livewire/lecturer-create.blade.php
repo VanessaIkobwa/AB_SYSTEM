@@ -6,21 +6,22 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
+            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name"  autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
+            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email"  autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        
         <!-- Department-->
         <div>
             <x-input-label for="name" :value="__('Department Name')" />
-            <select class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+            <select wire:model="department_name" class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                     <option selected="">~Select Department~</option>
                     <option>Mentorship Department</option>
                     <option>School of Computing and Engineering Sciences</option>
@@ -36,18 +37,29 @@
 
 
             </select>
+            <x-input-error :messages="$errors->get('department_name')" class="mt-2" />
+
         </div>
+
+         <!-- Office 
+         <div>
+            <x-input-label for="name" :value="__('Office')" />
+            <x-text-input wire:model="office" id="office" class="block mt-1 w-full" type="text" name="office"  autofocus autocomplete="office" />
+            <x-input-error :messages="$errors->get('office')" class="mt-2" />
+        </div> -->
 
         <!-- Units-->
         <div>
             <x-input-label for="name" :value="__('Units')" />
-            <select class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+            <select wire:model="unit_id" class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                     <option selected="">~Select Unit~</option>
-                    <option>Artificial Intelligence</option>
-                    <option>Business Intelligence </option>
-                    <option>Corporate Law </option>
-                    <option>IS Project</option>
+                    @foreach($units as $item)
+                    <option value="{{$item->id}}">{{$item->unit_name}}</option>
+
+                    @endforeach
             </select>
+            <x-input-error :messages="$errors->get('unit_id')" class="mt-2" />
+
         </div>
         
 
@@ -60,7 +72,7 @@
             <x-text-input wire:model="password" id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="new-password" />
+                            autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -71,7 +83,7 @@
 
             <x-text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
                             type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            name="password_confirmation"  autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
