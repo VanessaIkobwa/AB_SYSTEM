@@ -41,12 +41,12 @@
 
         </div>
 
-         <!-- Office 
+         <!-- Office -->
          <div>
             <x-input-label for="name" :value="__('Office')" />
             <x-text-input wire:model="office" id="office" class="block mt-1 w-full" type="text" name="office"  autofocus autocomplete="office" />
             <x-input-error :messages="$errors->get('office')" class="mt-2" />
-        </div> -->
+        </div> 
 
         <!-- Units-->
         <div>
@@ -77,7 +77,7 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Confirm Password -->
+        <!-- Confirm Password 
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
@@ -86,7 +86,7 @@
                             name="password_confirmation"  autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+        </div>-->
 
         <div class="flex items-center justify-end mt-4">
 

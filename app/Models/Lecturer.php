@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Units;
+use App\Models\User;
+
 
 class Lecturer extends Model
 {
@@ -11,10 +14,22 @@ class Lecturer extends Model
 
     protected $fillable = [
         
-        'unit_id' => 'required',
-        'department_name' => 'required',
-        //'office' => 'required',
+        'unit_id',
+        'user_id' ,
+        'department_name',
+        'office',
 
       
     ];
+
+    
+
+    public function unit()
+    {
+        return $this->belongsTo(Units::class,'unit_id');
+    }
+    public function lecturerUser()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }
