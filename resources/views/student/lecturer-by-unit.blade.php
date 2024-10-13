@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Lecturers Unit</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -27,9 +27,9 @@
 <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <livewire:hero-section />
-                        <livewire:featured-lecturers :unit_id="0" />
-                        <livewire:faculty-section />
+                   
+                        <livewire:featured-lecturers :unit_id="$id" />
+                        
 
 
 

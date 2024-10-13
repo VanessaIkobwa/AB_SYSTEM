@@ -11,5 +11,11 @@ class StudentController extends Controller
     {
         return view('student.dashboard');
     }
+    public function loadLecturerByUnit($unit_id)
+    {
+        $id = $unit_id;
+        return view('student.lecturer-by-unit',compact('id'));
+        
+    }
 
 }

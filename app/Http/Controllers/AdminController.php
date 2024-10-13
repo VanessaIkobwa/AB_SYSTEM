@@ -36,4 +36,5 @@ class AdminController extends Controller
         return view('admin.edit-unit-form',compact('id'));
         
     }
+    
 }

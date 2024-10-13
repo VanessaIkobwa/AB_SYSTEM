@@ -2,6 +2,8 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AcademicAdminController;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\StudentController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,9 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::get('/filter-by-unit/{unit_id}',[StudentController::class,'loadLecturerByUnit']);
+
 
 Route::get('/lecturer/dashboard',[LecturerController::class,'loadLecturerDashboard'])
     ->name('lecturer-dashboard')
@@ -37,6 +42,7 @@ Route::group(['middleware' => 'admin'],function()
     Route::get('/edit/unit/{unit}',[AdminController::class,'loadEditUnitForm']);
 
 
+    
 });
 
 

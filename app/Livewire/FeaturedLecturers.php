@@ -10,9 +10,24 @@ class FeaturedLecturers extends Component
 
     public $featuredLecturers;
 
-    public function mount()
+    public function mount($unit_id)
     {
-        $this->featuredLecturers = Lecturer::with('unit', 'lecturerUser')->get();
+        if ($unit_id != 0) {
+            
+            $this->featuredLecturers = Lecturer::with('unit', 'lecturerUser')->whereHas('unit',function($query) use($unit_id)
+            {
+                $query->where('id',$unit_id);
+            }
+            )->get();
+
+        } else {
+        
+            $this->featuredLecturers = Lecturer::with('unit', 'lecturerUser')->get();
+            
+        }
+        
+
+
     }
     public function render()
     {
