@@ -14,7 +14,7 @@ class FeaturedLecturers extends Component
     {
         if ($unit_id != 0) {
             
-            $this->featuredLecturers = Lecturer::with('unit', 'lecturerUser')->whereHas('unit',function($query) use($unit_id)
+            $this->featuredLecturers = Lecturer::with(['unit', 'lecturerUser'])->whereHas('unit',function($query) use($unit_id)
             {
                 $query->where('id',$unit_id);
             }
@@ -31,6 +31,8 @@ class FeaturedLecturers extends Component
     }
     public function render()
     {
-        return view('livewire.featured-lecturers');
+        return view('livewire.featured-lecturers',  [
+            'lecturers' => $this->featuredLecturers,
+        ]);
     }
 }

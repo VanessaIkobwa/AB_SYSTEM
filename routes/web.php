@@ -9,9 +9,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified', 'student']) //0
+
+
+Route::group(['middleware' => 'student'],function()
+{
+    Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified', 'student']) //role == 0
     ->name('dashboard');
+
+    Route::get('/my/appointments',[StudentController::class,'loadMyAppointments'])
+    ->name('my-appointments');
+
+    Route::get('/booking/page/{lecturer_id}',[StudentController::class,'loadBookingPage']);
+});
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
