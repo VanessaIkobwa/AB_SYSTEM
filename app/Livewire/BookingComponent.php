@@ -15,26 +15,26 @@ use App\Models\Appointment;
 
 class BookingComponent extends Component
 { 
-   // public $lecturer_details;
+    public $lecturer_details;
   //  public $appointment_type;
     public $selectedDate;
     public $availableDates = [];
     public $timeSlots = [];
 
-    public function mount()
+    public function mount($lecturer)
     {
-       // $this->lecturer_details = $lecturer;
+        $this->lecturer_details = $lecturer;
 
-        $this->fetchAvailableDates();
+        $this->fetchAvailableDates($this->lecturer_details);
     }
     
 
     
 
 
-    public function fetchAvailableDates()
+    public function fetchAvailableDates($lecturer)
     {
-        $schedules = LecturerSchedule::where('lecturer_id', 1)
+        $schedules = LecturerSchedule::where('lecturer_id', $lecturer->id)
             ->get();
 
         $availability = [];
@@ -67,13 +67,13 @@ class BookingComponent extends Component
     public function selectDate($date)
     {
         $this->selectedDate = $date;
-        $this->fetchTimeSlots($date);
+        $this->fetchTimeSlots($date, $this->lecturer_details);
     }
  
 
 
 
-    public function fetchTimeSlots($date)
+    public function fetchTimeSlots($date, $lecturer)
     {
         $dayOfWeek = Carbon::parse($date)->dayOfWeek; //0 , 1... 5
         $carbonDate = Carbon::parse($date)->format('Y-m-d');
@@ -89,7 +89,7 @@ class BookingComponent extends Component
             while ($fromTime->lessThan($toTime)) {
 
                 $timeSlot = $fromTime->format('H:i:s');
-                $appointmentExists = Appointment::where('lecturer_id',  1)
+                $appointmentExists = Appointment::where('lecturer_id', $lecturer->id)
                     ->where('appointment_date', $carbonDate)
                     ->where('appointment_time', $timeSlot)
                     ->exists();

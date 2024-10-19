@@ -4,5 +4,5 @@
             {{ __('Booking Page') }}
         </h2>
     </x-slot>
-    <livewire:booking-component />
+    <livewire:booking-component :lecturer="$lecturer" />
 </x-app-layout>

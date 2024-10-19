@@ -18,10 +18,11 @@
         <img class=" size-50" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Avatar">
         <div class="grow">
           <h3 class="font-medium text-gray-800 dark:text-neutral-200 text-center py-2 ">
-            David Forren
+          {{$lecturer_details->lecturerUser->name}}
           </h3>
           <p class="text-xs uppercase text-gray-500 dark:text-neutral-500 text-center">
-            Founder / CEO
+          {{$lecturer_details->unit->unit_name}} | {{$lecturer_details->department_name}}
+
           </p>
         </div>
       </div>
