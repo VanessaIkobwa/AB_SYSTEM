@@ -4,4 +4,5 @@
             {{ __('Booking Page') }}
         </h2>
     </x-slot>
+    <livewire:booking-component />
 </x-app-layout>
