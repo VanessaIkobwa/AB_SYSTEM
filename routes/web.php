@@ -30,9 +30,22 @@ Route::view('profile', 'profile')
 Route::get('/filter-by-unit/{unit_id}',[StudentController::class,'loadLecturerByUnit']);
 
 
-Route::get('/lecturer/dashboard',[LecturerController::class,'loadLecturerDashboard'])
-    ->name('lecturer-dashboard')
-    ->middleware('lecturer');
+
+Route::group(['middleware' => 'lecturer'],function()
+{
+    Route::get('/lecturer/dashboard',[LecturerController::class,'loadLecturerDashboard'])
+    ->name('lecturer-dashboard');
+
+    Route::get('/lecturer/appointments',[LecturerController::class,'loadAllAppointments'])
+    ->name('lecturer-appointments');
+
+    Route::get('/lecturer/schedules',[LecturerController::class,'loadAllSchedules'])
+    ->name('my-schedules');
+    
+    Route::get('/create/schedule',[LecturerController::class,'loadAddScheduleForm']);
+    
+   
+});
 
 
 Route::group(['middleware' => 'admin'],function()

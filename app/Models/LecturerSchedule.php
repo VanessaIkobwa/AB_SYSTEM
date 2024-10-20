@@ -17,4 +17,9 @@ class LecturerSchedule extends Model
     'to',
     
     ];
+
+    public function lecturer()
+    {
+        return $this->belongsTo(Lecturer::class,'lecturer_id');
+    }
 }

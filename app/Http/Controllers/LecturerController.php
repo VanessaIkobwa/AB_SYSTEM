@@ -11,4 +11,20 @@ class LecturerController extends Controller
     {
         return view('lecturer.dashboard');
     }
+
+    public function loadAllAppointments()
+    {
+        return view('lecturer.appointments');
+    }
+
+    public function loadAllSchedules()
+    {
+        return view('lecturer.schedules');
+    }
+
+    public function loadAddScheduleForm()
+    {
+        return view('lecturer.schedule-form');
+    }
+
 }
