@@ -26,5 +26,10 @@ class LecturerController extends Controller
     {
         return view('lecturer.schedule-form');
     }
+    public function loadEditScheduleForm($schedule_id)
+    {
+        $id = $schedule_id;
+        return view('lecturer.edit-schedule-form', compact('id'));
+    }
 
 }

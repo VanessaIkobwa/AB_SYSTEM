@@ -43,6 +43,8 @@ Route::group(['middleware' => 'lecturer'],function()
     ->name('my-schedules');
     
     Route::get('/create/schedule',[LecturerController::class,'loadAddScheduleForm']);
+    Route::get('/edit/schedule/{schedule_id}',[LecturerController::class,'loadEditScheduleForm']);
+
     
    
 });

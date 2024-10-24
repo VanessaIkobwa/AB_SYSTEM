@@ -22,6 +22,15 @@ class SchedulesComponent extends Component
         ];
     }
 
+    public function delete($id)
+    {
+        $data = LecturerSchedule::find($id);
+        $data->delete();
+        
+        session()->flash('message', 'Slot deleted successfully');
+
+        return $this->redirect('/lecturer/schedules');
+    }
     public function render()
     { 
         $user_id = auth()->user()->id;
