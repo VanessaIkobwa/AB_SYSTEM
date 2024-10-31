@@ -47,6 +47,10 @@ new class extends Component
                     <x-nav-link :href="route('admin-units')" :active="request()->routeIs('admin-units')" wire:navigate>
                         {{ __('Units') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('admin-appointments')" :active="request()->routeIs('admin-appointments')" wire:navigate>
+                        {{ __('All Appointments') }}
+                    </x-nav-link>
                 @endif
 
                 @if(auth()->user() && auth()->user()->role == 0)
@@ -72,6 +76,17 @@ new class extends Component
                         <x-nav-link :href="route('lecturer-appointments')" :active="request()->routeIs('lecturer-appointments')" wire:navigate>
                             {{ __('My Appointments') }}
                         </x-nav-link>
+
+                @endif
+
+                @if(auth()->user() && auth()->user()->role == 3)
+                <x-nav-link :href="route('academic_admin-dashboard')" :active="request()->routeIs('academic_admin-dashboard')" wire:navigate>
+                        {{ __('Dashboard') }}
+                </x-nav-link>
+
+                <x-nav-link :href="route('academic_admin-appointments')" :active="request()->routeIs('academic_admin-appointments')" wire:navigate>
+                        {{ __('All Appointments') }}
+                </x-nav-link>
 
                 @endif
 

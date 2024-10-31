@@ -29,8 +29,20 @@ class BookingComponent extends Component
     }
     
 
-    
+    public function bookAppointment($slot){
+        $carbonDate = Carbon::parse($this->selectedDate)->format('Y-m-d');
+        $newAppointment = new Appointment();
+        $newAppointment->student_id = auth()->user()->id;
+        $newAppointment->lecturer_id = $this->lecturer_details->id;
+        $newAppointment->appointment_date = $carbonDate;
+        $newAppointment->appointment_time = $slot;
+      //  $newAppointment->appointment_type = $this->appointment_type;
+        $newAppointment->save();
 
+        session()->flash('message','appointment with '.$this->lecturer_details->lecturerUser->name.' on '.$this->selectedDate.$slot.' was created!');
+
+        return $this->redirect('/my/appointments');
+    }
 
     public function fetchAvailableDates($lecturer)
     {

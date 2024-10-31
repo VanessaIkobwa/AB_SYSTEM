@@ -17,4 +17,14 @@ class Appointment extends Model
         'appointment_type',
     ];
 
+    public function lecturer()
+    {
+        return $this->belongsTo(Lecturer::class,'lecturer_id');
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(User::class,'student_id');
+    }
+
 }

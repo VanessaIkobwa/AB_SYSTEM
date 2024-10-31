@@ -60,21 +60,32 @@ Route::group(['middleware' => 'admin'],function()
     
     Route::get('/admin/create/lecturer',[AdminController::class,'loadLecturerForm']);
 
+    //units
     Route::get('/admin/units',[AdminController::class,'loadAllUnits'])
     ->name('admin-units');
 
     Route::get('/admin/create/unit',[AdminController::class,'loadUnitForm']);
     Route::get('/edit/unit/{unit}',[AdminController::class,'loadEditUnitForm']);
 
+    //Appointments
+    Route::get('/admin/appointments',[AdminController::class,'loadAllAppointments'])
+    ->name('admin-appointments');
 
     
 });
 
 
 
+Route::group(['middleware' => 'academic_admin'],function()
+{
+    Route::get('/academic_admin/dashboard',[AcademicAdminController::class,'loadAcademicAdminDashboard'])
+    ->name('academic_admin-dashboard');
 
-Route::get('/academic_admin/dashboard',[AcademicAdminController::class,'loadAcademicAdminDashboard'])
-    ->name('academic_admin-dashboard')
-    ->middleware('academic_admin');
+   //Appointments
+    Route::get('/academic_admin/appointments',[AcademicAdminController::class,'loadAllAppointments'])
+    ->name('academic_admin-appointments');
+});
+
+   
 
 require __DIR__.'/auth.php';

@@ -36,5 +36,15 @@ class AdminController extends Controller
         return view('admin.edit-unit-form',compact('id'));
         
     }
+    public function loadAllAppointments()
+    {
+        return view('admin.appointments');
+        
+    }
+
+
+    
+
+
     
 }
