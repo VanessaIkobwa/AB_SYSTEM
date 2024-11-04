@@ -20,11 +20,11 @@
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
        <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">5</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_users_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
         </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">5</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_users_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -40,24 +40,17 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          25
+          {{$lecturers_count}}
         </h3>
       </div>
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-green-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
+      <dd class="text-start ps-3">
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_lecturer_count}}</span>
+          <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
+        </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_lecturer_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -73,24 +66,18 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          4
+        {{$students_count}}
+          
         </h3>
       </div>
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-red-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
+      <dd class="text-start ps-3">
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_student_count}}</span>
+          <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
+        </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_student_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -106,24 +93,17 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          4
+          {{$academic_admin_count}}
         </h3>
       </div>
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-red-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
+      <dd class="text-start ps-3">
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_academic_count}}</span>
+          <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
+        </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_academic_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -140,24 +120,17 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          4
+     {{$appointments_count}}
         </h3>
       </div>
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-red-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
+      <dd class="text-start ps-3">
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_appointments_count}}</span>
+          <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
+        </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_appointments_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -178,27 +151,11 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          25
+        {{$lecturer_appointments_count}}
         </h3>
       </div>
 
-      <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-green-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
-        <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
-        </dd>
-      </dl>
+     
     </div>
     <!-- End Card -->
 
@@ -211,27 +168,11 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          25
+          {{$upcoming_appointments_count}}
         </h3>
       </div>
 
-      <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-green-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
-        <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
-        </dd>
-      </dl>
+     
     </div>
     <!-- End Card -->
 
@@ -244,27 +185,11 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          25
+          {{$complete_appointments_count}}
         </h3>
       </div>
 
-      <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-green-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
-        <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
-        </dd>
-      </dl>
+     
     </div>
     <!-- End Card -->
 
@@ -282,24 +207,18 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          25
+        {{$lecturers_count}}
+          
         </h3>
       </div>
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-green-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
+      <dd class="text-start ps-3">
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_lecturer_count}}</span>
+          <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
+        </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_lecturer_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -316,24 +235,18 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          4
+     {{$appointments_count}}
+          
         </h3>
       </div>
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-red-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
+      <dd class="text-start ps-3">
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">5</span>
+          <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
+        </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">5</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -351,29 +264,91 @@
 
       <div class="text-center">
         <h3 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-neutral-200">
-          25
+        {{$students_count}}
         </h3>
       </div>
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
-        <dt class="pe-3">
-          <span class="text-green-600">
-            <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-            </svg>
-            <span class="inline-block text-sm">
-              5.6%
-            </span>
-          </span>
-          <span class="block text-sm text-gray-500 dark:text-neutral-500">change</span>
-        </dt>
+      <dd class="text-start ps-3">
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_student_count}}</span>
+          <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
+        </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">7</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_student_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
     </div>
     <!-- End Card -->
+
+    <style>
+        /* Optional: Set max width for better layout */
+        #appointmentChart {
+            max-width: 400px; /* or any desired maximum width */
+            height: 10px; /* Set height here if using CSS */
+        }
+    </style>
+   <canvas id="appointmentChart" width="70" height="15"></canvas>
+    <script>
+        const ctx = document.getElementById('appointmentChart').getContext('2d');
+        const appointmentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels:data, // Replace with your month/week labels
+                datasets: [{
+                    label: 'Number of Appointments',
+                    data: appointments,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Appointments'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   @endif
   
   
@@ -384,4 +359,5 @@
   </div>
   <!-- End Grid -->
 </div>
-<!-- End Card Section -->
+<!-- End Cad Section -->
+ 

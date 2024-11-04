@@ -3,6 +3,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AcademicAdminController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AppointmentController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -81,11 +82,17 @@ Route::group(['middleware' => 'academic_admin'],function()
     Route::get('/academic_admin/dashboard',[AcademicAdminController::class,'loadAcademicAdminDashboard'])
     ->name('academic_admin-dashboard');
 
+    //reports
+    Route::get('/academic_admin/reports',[AcademicAdminController::class,'loadAllReports'])
+    ->name('academic_admin-reports');
+
    //Appointments
     Route::get('/academic_admin/appointments',[AcademicAdminController::class,'loadAllAppointments'])
     ->name('academic_admin-appointments');
+
+    
 });
 
-   
+Route::get('/appointments-data', [AppointmentController::class, 'getAppointmentsData']); 
 
 require __DIR__.'/auth.php';

@@ -20,6 +20,9 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
         <!-- moment -->
         <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
+        <!-- chart -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 
     </head>
@@ -41,5 +44,6 @@
                 {{ $slot }}
             </main>
         </div>
+        
     </body>
 </html>

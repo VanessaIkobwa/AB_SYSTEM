@@ -18,5 +18,10 @@ class AcademicAdminController extends Controller
         return view('academic_admin.appointments');
     }
 
+    public function loadAllReports()
+    {
+        return view('academic_admin.reports');
+    }
+
     
 }

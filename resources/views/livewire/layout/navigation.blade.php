@@ -88,6 +88,10 @@ new class extends Component
                         {{ __('All Appointments') }}
                 </x-nav-link>
 
+                <x-nav-link :href="route('academic_admin-reports')" :active="request()->routeIs('academic_admin-reports')" wire:navigate>
+                        {{ __('Reports') }}
+                </x-nav-link>
+
                 @endif
 
 

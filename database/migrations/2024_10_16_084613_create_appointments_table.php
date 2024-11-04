@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('appointment_date');
             $table->time('appointment_time');
             $table->integer('appointment_type')->nullable();
+            $table->integer('is_complete')->default(0); //0-incomplete 1-complete
+
 
             $table->timestamps();
         });
