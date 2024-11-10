@@ -23,5 +23,10 @@ class AcademicAdminController extends Controller
         return view('academic_admin.reports');
     }
 
+    public function loadPDFForm()
+    {
+        return view('academic_admin.PDFform');
+    }
+
     
 }

@@ -5,6 +5,11 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Appointment;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\AppointmentsExport; // Custom export class for Excel
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 
 
 class ReportComponent extends Component
@@ -80,7 +85,50 @@ class ReportComponent extends Component
         // Prepare the data in a suitable format for the chart
         return $appointmentsByLecturer->pluck('count', 'lecturer_name')->toArray();
     }
+
+
+    //export to pdf
+    public function exportToPDF()
+    {
+        $data = [
+            'appointmentsData' => $this->appointmentsData,
+            'dailyAppointmentsData' => $this->dailyAppointmentsData,
+            'appointmentsByLecturerData' => $this->appointmentsByLecturerData,
+
+        ];
+
+         // Create Dompdf instance with custom options
+
+         $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true); // To allow PHP code within the PDF content
+
+
+       $pdf = new Dompdf($options);
+        $pdf->loadHtml(view('livewire.p-d-f-component', $data)->render()); // Load the view into PDF
+        $pdf->setPaper('A4', 'landscape'); // Set paper size and orientation
+        $pdf->render(); // Render the PDF
+        
+        // Stream the generated PDF as a download
+        return response()->streamDownload(
+            fn() => print($pdf->output()),
+            'appointments_report.pdf'
+        );
+    }
+
+    // Export to Excel
+    public function exportToExcel()
+    {
+        return Excel::download(new AppointmentsExport($this->appointmentsData, $this->dailyAppointmentsData), 'report.xlsx');
+    }
     
+     // Export to CSV
+     public function exportToCSV()
+     {
+         return Excel::download(new AppointmentsExport($this->appointmentsData, $this->dailyAppointmentsData), 'report.csv', \Maatwebsite\Excel\Excel::CSV);
+     }
+
+
     public function render()
     {
         return view('livewire.report-component', [

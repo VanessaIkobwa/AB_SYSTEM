@@ -90,6 +90,8 @@ Route::group(['middleware' => 'academic_admin'],function()
     Route::get('/academic_admin/appointments',[AcademicAdminController::class,'loadAllAppointments'])
     ->name('academic_admin-appointments');
 
+    //PDF
+    Route::get('/academic_admin/reports/pdf',[AcademicAdminController::class,'loadPDFForm']);
     
 });
 
