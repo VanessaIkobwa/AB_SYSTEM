@@ -13,6 +13,7 @@
         </div>
 @endif
 
-<livewire:all-appointments />
+<livewire:recent-appointments />
+
 </x-app-layout>
 

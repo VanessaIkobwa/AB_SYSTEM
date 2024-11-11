@@ -4,6 +4,7 @@
             {{ __('All My Appointments') }}
         </h2>
     </x-slot>   
-    <livewire:all-appointments/>
+<livewire:recent-appointments />   
+    
 </x-app-layout>
 

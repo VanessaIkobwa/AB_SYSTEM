@@ -10,7 +10,7 @@
                         
                         <livewire:featured-lecturers :unit_id="0" />
                         <livewire:faculty-section />
-                        <livewire:recent-appointments />
+                    
 
 
 

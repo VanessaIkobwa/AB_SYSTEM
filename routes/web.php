@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AppointmentController;
 
 
+
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');

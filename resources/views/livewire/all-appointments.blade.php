@@ -121,7 +121,9 @@
                 @endif
 
                 
+                @if(auth()->user() && auth()->user()->role == 1 )
 
+                @else
                 <th scope="col" class="px-6 py-3 text-start">
                   <div class="flex items-center gap-x-2">
                     <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
@@ -129,6 +131,7 @@
                     </span>
                   </div>
                 </th>
+                @endif
 
                 <th scope="col" class="px-6 py-3 text-start">
                   <div class="flex items-center gap-x-2">
@@ -181,7 +184,9 @@
                                 
                         @endif
                             
-                            
+                        @if(auth()->user() && auth()->user()->role == 1 )
+
+                        @else    
                                 <td class="size-px whitespace-nowrap align-top">
                                     <a class="block p-6" href="#">
                                     <div class="flex items-center gap-x-3">
@@ -193,6 +198,9 @@
                                     </div>
                                     </a>
                                 </td>
+
+                        @endif
+                              
                                 <td class="h-px w-72 min-w-72 align-top">
                                 <a class="block p-6" href="#">
                                 
