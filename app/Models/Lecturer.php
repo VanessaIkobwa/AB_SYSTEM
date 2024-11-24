@@ -18,6 +18,7 @@ class Lecturer extends Model
         'user_id' ,
         'department_name',
         'office',
+        'is_featured',
 
       
     ];

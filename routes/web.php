@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome');
 
 
-
+//student
 Route::group(['middleware' => 'student'],function()
 {
     Route::view('dashboard', 'dashboard')
@@ -23,6 +23,9 @@ Route::group(['middleware' => 'student'],function()
     ->name('my-appointments');
 
     Route::get('/booking/page/{lecturer_id}',[StudentController::class,'loadBookingPage']);
+    Route::get('/all/lecturers',[StudentController::class,'loadAllLecturers'])
+    ->name('all-lecturers');
+
 });
 
 Route::view('profile', 'profile')
@@ -32,7 +35,7 @@ Route::view('profile', 'profile')
 Route::get('/filter-by-unit/{unit_id}',[StudentController::class,'loadLecturerByUnit']);
 
 
-
+//lecturer
 Route::group(['middleware' => 'lecturer'],function()
 {
     Route::get('/lecturer/dashboard',[LecturerController::class,'loadLecturerDashboard'])
@@ -51,7 +54,7 @@ Route::group(['middleware' => 'lecturer'],function()
    
 });
 
-
+//admin
 Route::group(['middleware' => 'admin'],function()
 {
     Route::get('/admin/dashboard',[AdminController::class,'loadAdminDashboard'])
@@ -77,7 +80,7 @@ Route::group(['middleware' => 'admin'],function()
 });
 
 
-
+//academic admin
 Route::group(['middleware' => 'academic_admin'],function()
 {
     Route::get('/academic_admin/dashboard',[AcademicAdminController::class,'loadAcademicAdminDashboard'])

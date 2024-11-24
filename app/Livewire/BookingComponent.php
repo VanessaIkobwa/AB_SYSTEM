@@ -6,8 +6,8 @@ use Livewire\Component;
 use Illuminate\Support\Carbon;
 use App\Models\LecturerSchedule;
 use App\Models\Appointment;
-//use App\Mail\AppointmentCreated;
-//use Illuminate\Support\Facades\Mail;
+use App\Mail\AppointmentCreated;
+use Illuminate\Support\Facades\Mail;
 //use App\Models\Lecturer;
 //use App\Models\User;
 //use Illuminate\Support\Facades\DB;
@@ -38,6 +38,20 @@ class BookingComponent extends Component
         $newAppointment->appointment_time = $slot;
       //  $newAppointment->appointment_type = $this->appointment_type;
         $newAppointment->save();
+
+        $appointmentEmailData = [
+            'date' => $this->selectedDate,
+            'time' => Carbon::parse($slot)->format('H:i A'),
+            'location' => '123 Medical Street, Health City',
+            'student_name' => auth()->user()->name,
+            'student_email' => auth()->user()->email,
+            'lecturer_name' => $this->lecturer_details->lecturerUser->name,
+            'lecturer_email' => $this->lecturer_details->lecturerUser->email,
+           // 'appointment_type' => $this->appointment_type == 0 ? 'on-site' : 'live consultation',
+            'lecturer_specialization' => $this->lecturer_details->unit->unit_name,
+        ];
+        $this->sendAppointmentNotification($appointmentEmailData);
+
 
         session()->flash('message','appointment with '.$this->lecturer_details->lecturerUser->name.' on '.$this->selectedDate.$slot.' was created!');
 
@@ -121,7 +135,30 @@ class BookingComponent extends Component
     }
 
 
-  
+    public function sendAppointmentNotification($appointmentData)
+    {
+        // Send to Admin
+        $appointmentData['recipient_name'] = 'Admin Admin';
+        $appointmentData['recipient_role'] = 'admin';
+        Mail::to('veemwoko@gmail.com')->send(new AppointmentCreated($appointmentData));
+
+        // Send to Academic_Admin
+        $appointmentData['recipient_name'] = 'Academic_Admin Academic_Admin';
+        $appointmentData['recipient_role'] = 'academic_admin';
+        Mail::to('nessazipporahikim@gmail.com')->send(new AppointmentCreated($appointmentData));
+
+        // Send to Lec
+        $appointmentData['recipient_name'] = $appointmentData['lecturer_name'];
+        $appointmentData['recipient_role'] = 'lecturer';
+        Mail::to($appointmentData['lecturer_email'])->send(new AppointmentCreated($appointmentData));
+
+        // Send to student
+        $appointmentData['recipient_name'] = $appointmentData['student_name'];
+        $appointmentData['recipient_role'] = 'student';
+        Mail::to($appointmentData['student_email'])->send(new AppointmentCreated($appointmentData));
+
+        return 'Appointment notifications sent successfully!';
+    }
 
     public function render()
     {

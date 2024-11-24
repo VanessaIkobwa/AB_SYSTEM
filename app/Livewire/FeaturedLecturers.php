@@ -18,12 +18,13 @@ class FeaturedLecturers extends Component
             ->whereHas('unit',function($query) use($unit_id)
             {
                 $query->where('id',$unit_id);
-            }
-            )->get();
+            })
+            ->where('is_featured',1)
+            ->get();
 
         } else {
         
-            $this->featuredLecturers = Lecturer::with('unit', 'lecturerUser')->get();
+            $this->featuredLecturers = Lecturer::with(['unit', 'lecturerUser']) ->where('is_featured',1)->get();
             
         }
         

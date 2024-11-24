@@ -242,11 +242,11 @@
 
       <dl class="flex justify-center items-center divide-x divide-gray-200 dark:divide-neutral-800">
       <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">5</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_month_appointments_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last month</span>
         </dd>
         <dd class="text-start ps-3">
-          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">5</span>
+          <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$last_week_appointments_count}}</span>
           <span class="block text-sm text-gray-500 dark:text-neutral-500">last week</span>
         </dd>
       </dl>
@@ -281,48 +281,7 @@
     </div>
     <!-- End Card -->
 
-    <style>
-        /* Optional: Set max width for better layout */
-        #appointmentChart {
-            max-width: 400px; /* or any desired maximum width */
-            height: 10px; /* Set height here if using CSS */
-        }
-    </style>
-   <canvas id="appointmentChart" width="70" height="15"></canvas>
-    <script>
-        const ctx = document.getElementById('appointmentChart').getContext('2d');
-        const appointmentChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels:data, // Replace with your month/week labels
-                datasets: [{
-                    label: 'Number of Appointments',
-                    data: appointments,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    fill: true,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Number of Appointments'
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Month'
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+    
 
 
 

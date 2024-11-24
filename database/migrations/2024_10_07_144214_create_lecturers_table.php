@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('is_featured')->default(0); //0-not 1-featured
             $table->timestamps();
         });
     }

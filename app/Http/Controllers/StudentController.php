@@ -30,6 +30,12 @@ class StudentController extends Controller
     {
         $lecturer = Lecturer::with('unit','lecturerUser')->where('id',$id)->first();
         return view('student.booking-page',compact('lecturer'));
+    }
+    public function loadAllLecturers()
+    {
+        return view('student.all-lecturers');
 
     }
+
+    
 }

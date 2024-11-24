@@ -62,6 +62,10 @@ new class extends Component
                     {{ __('My Appointments') }}
                 </x-nav-link>
 
+                <x-nav-link :href="route('all-lecturers')" :active="request()->routeIs('all-lecturers')" wire:navigate>
+                    {{ __('All Lecturers') }}
+                </x-nav-link>
+
                 @endif
 
                 @if(auth()->user() && auth()->user()->role == 1)
