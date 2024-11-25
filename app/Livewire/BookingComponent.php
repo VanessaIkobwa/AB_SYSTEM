@@ -42,7 +42,7 @@ class BookingComponent extends Component
         $appointmentEmailData = [
             'date' => $this->selectedDate,
             'time' => Carbon::parse($slot)->format('H:i A'),
-            'location' => '123 Medical Street, Health City',
+            'location' => 'ABC Office',
             'student_name' => auth()->user()->name,
             'student_email' => auth()->user()->email,
             'lecturer_name' => $this->lecturer_details->lecturerUser->name,
@@ -103,7 +103,7 @@ class BookingComponent extends Component
     {
         $dayOfWeek = Carbon::parse($date)->dayOfWeek; //0 , 1... 5
         $carbonDate = Carbon::parse($date)->format('Y-m-d');
-        $schedule = LecturerSchedule::where('lecturer_id', 1)
+        $schedule = LecturerSchedule::where('lecturer_id', $lecturer->id)
             ->where('available_day', $dayOfWeek)
             ->first();
 
