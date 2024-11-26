@@ -26,6 +26,9 @@ Route::group(['middleware' => 'student'],function()
     Route::get('/all/lecturers',[StudentController::class,'loadAllLecturers'])
     ->name('all-lecturers');
 
+      //   Reschedule
+      Route::get('/student/reschedule/{appointment_id}',[StudentController::class,'loadReschedulingForm']);
+
 });
 
 Route::view('profile', 'profile')
@@ -50,6 +53,8 @@ Route::group(['middleware' => 'lecturer'],function()
     Route::get('/create/schedule',[LecturerController::class,'loadAddScheduleForm']);
     Route::get('/edit/schedule/{schedule_id}',[LecturerController::class,'loadEditScheduleForm']);
 
+      //   Reschedule
+      Route::get('/lecturer/reschedule/{appointment_id}',[LecturerController::class,'loadReschedulingForm']);
     
    
 });
@@ -77,6 +82,7 @@ Route::group(['middleware' => 'admin'],function()
     ->name('admin-appointments');
 
     
+    
 });
 
 
@@ -93,6 +99,9 @@ Route::group(['middleware' => 'academic_admin'],function()
    //Appointments
     Route::get('/academic_admin/appointments',[AcademicAdminController::class,'loadAllAppointments'])
     ->name('academic_admin-appointments');
+
+   //   Reschedule
+    Route::get('/academic_admin/reschedule/{appointment_id}',[AcademicAdminController::class,'loadReschedulingForm']);
 
     //PDF
     Route::get('/academic_admin/reports/pdf',[AcademicAdminController::class,'loadPDFForm']);

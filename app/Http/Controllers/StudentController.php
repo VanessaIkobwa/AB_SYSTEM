@@ -36,6 +36,11 @@ class StudentController extends Controller
         return view('student.all-lecturers');
 
     }
+    public function loadReschedulingForm($id)
+    {
+        $appointment_id = $id;
+        return view('student.rescheduling-form', compact ('appointment_id'));
+    }
 
     
 }

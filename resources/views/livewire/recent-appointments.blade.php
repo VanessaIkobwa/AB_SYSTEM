@@ -5,7 +5,11 @@
 <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white"> My Appointments</h2>
 </div>
 
-<div wire:loading> Loading...</div>
+<div wire:loading class="text-gray-800 dark:text-neutral-200">
+    <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
+      <span class="sr-only">Loading...</span>
+    </div>
+    Processing..</div>
 <!-- Card -->
   <div class="flex flex-col">
     <div class="-m-1.5 overflow-x-auto">
@@ -181,7 +185,7 @@
                                     </svg>
                                   </a>
                             @endif
-
+                                   <!-- Cancellation Reason Input -->
                             <button class="bg-red-500 rounded text-white p-1 ml-3" wire:click="cancel({{$appointment->id}})" wire:confirm="Are you sure you want to cancel the appointment?">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -218,5 +222,8 @@
     </div>
   </div>
   <!-- End Card -->
+
+ 
+
 </div>
 <!-- End Table Section -->

@@ -44,11 +44,12 @@ class RecentAppointments extends Component
         if (auth()->user()->role == 0) {
             return $this->redirect('/my/appointments');
         }
-        
+        session()->flash('message','Appointment cancelled successfully');
         if (auth()->user()->role == 3) {
             return $this->redirect('/academic_admin/appointments');
         }
-
+        
+        session()->flash('message','Appointment cancelled successfully');
         if (auth()->user()->role == 1) {
             return $this->redirect('/lecturer/appointments');
         }

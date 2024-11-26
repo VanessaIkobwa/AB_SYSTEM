@@ -15,6 +15,7 @@ class Appointment extends Model
         'appointment_date',
         'appointment_time',
         'appointment_type',
+        'cancellation_reason',
     ];
 
     public function lecturer()

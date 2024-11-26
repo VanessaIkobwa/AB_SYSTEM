@@ -28,5 +28,10 @@ class AcademicAdminController extends Controller
         return view('academic_admin.PDFform');
     }
 
+    public function loadReschedulingForm($id)
+    {
+        $appointment_id = $id;
+        return view('academic_admin.rescheduling-form', compact ('appointment_id'));
+    }
     
 }

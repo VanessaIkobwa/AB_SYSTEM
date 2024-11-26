@@ -1,13 +1,18 @@
 @component('mail::message')
-# Appointment Confirmation
+# Appointment Notification
 
 Dear {{ $appointmentData['recipient_name'] }},
 
-An appointment has been Cancelled with the following details:
+An appointment has been Updated with the following details:
 
-### Appointment Details:
+### New Appointment Details:
 - **Date:** {{ $appointmentData['date'] }}
 - **Time:** {{ $appointmentData['time'] }}
+- **Location:** {{ $appointmentData['location'] }}
+
+### Old Appointment Details:
+- **Date:** {{ $appointmentData['old_date'] }}
+- **Time:** {{ $appointmentData['old_time'] }}
 - **Location:** {{ $appointmentData['location'] }}
 
 ### Student Details:
@@ -18,30 +23,20 @@ An appointment has been Cancelled with the following details:
 - **Name:** {{ $appointmentData['lecturer_name'] }}
 - **Unit:** {{ $appointmentData['lecturer_specialization'] }}
 
-### Appointment Cancelled by:
-- **Name:** {{ $appointmentData['cancelled_by'] }}
-@if ($appointmentData['cancelled_by'] == 1)
-- **Role:** Lecturer
-@elseif($appointmentData['cancelled_by'] == 3)
-- **Role:** Academic Admin
-@elseif($appointmentData['cancelled_by'] == 0)
-- **Role:** Student
-@endif
-
 
 @if($appointmentData['recipient_role'] == 'academic_admin')
-## Academic_Admin Notification
-You are receiving this email because an appointment has been cancelled in your system.
+## Academic Admin Notification
+You are receiving this email because an appointment has been scheduled in your system.
 @endif
 
 @if($appointmentData['recipient_role'] == 'lecturer')
 ## Lecturer Notification
-You have a cancelled appointment.
+Appointment has been rescheduled with the above details.
 @endif
 
 @if($appointmentData['recipient_role'] == 'student')
 ## Student Notification
-Your appointment has been cancelled.
+Your appointment has been rescheduled. 
 @endif
 
 Thanks,<br>
