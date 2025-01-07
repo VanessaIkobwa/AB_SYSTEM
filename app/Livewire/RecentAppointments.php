@@ -45,11 +45,11 @@ class RecentAppointments extends Component
             return $this->redirect('/my/appointments');
         }
         session()->flash('message','Appointment cancelled successfully');
+
         if (auth()->user()->role == 3) {
             return $this->redirect('/academic_admin/appointments');
         }
-        
-        session()->flash('message','Appointment cancelled successfully');
+
         if (auth()->user()->role == 1) {
             return $this->redirect('/lecturer/appointments');
         }
@@ -82,6 +82,8 @@ class RecentAppointments extends Component
 
         return 'Appointment notifications sent successfully!';
     }
+
+    
 
     public function render()
     {

@@ -1,11 +1,8 @@
 
 <div>
-
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-
-    <div class="flex justify-center items-center w-full h-80">
-    <!--Number of Appointment Chart-->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+     <div class="flex justify-center items-center w-full h-80">
+         <!--Number of Appointment Chart-->
                 <div wire:ignore class="flex justify-center items-center">
                     <canvas id="monthlyAppointmentsChart" style="width: 100%; height: 20rem;"></canvas> <!-- Unique ID for the first chart -->
                 </div>
@@ -66,9 +63,9 @@
                 });
             </script>
             @endscript
-    </div>
+     </div>
 
-    <!--Daily Appointments-->
+     <!--Daily Appointments-->
 
             <div class="flex justify-center items-center w-full h-80">
                 <div wire:ignore class="flex justify-center items-center">
@@ -205,11 +202,88 @@
             @endscript
         </div>
 
-    </div>
+     <!--Appointment by Status-->
+     <div class="flex justify-center items-center w-full h-80 pt-6 pb-6" style="margin-top: 80px; ">
+            <div wire:ignore class="flex justify-center items-center">
+                <canvas id="appointmentStatusChart"style="width: 100%; height: 20rem;" ></canvas> <!-- Unique ID for the second chart -->
+            </div>
+
+            @assets
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            @endassets
+
+            @script
+            <script>
+                const ctxStatus = document.getElementById('appointmentStatusChart'); // Reference the second chart
+
+                new Chart(ctxStatus, {
+                    type: 'doughnut',
+                    data: {
+                        labels:['Completed', 'Pending'], // Lecturer IDs or names as labels
+                        datasets: [{
+                            label: 'Number of  by ',
+                            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+                            backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                            data: @json(array_values($appointmentStatusData)),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Appointments',
+                            color: 'grey'
+                        },
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Lecturer Name',
+                            color: 'grey'
+                        },
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    },
+                    tooltip: {
+                        titleColor: 'white',
+                        bodyColor: 'white',
+                    }
+                }
+            }
+                });
+            </script>
+            @endscript
+        </div>
+
+        
+
+
+
+     </div>
+  
+
+   
+
+
+
 
                 
                 
-      <div style="display: flex; gap: 1rem; margin-top: 20px;">
+      <div style="display: flex; gap: 1rem; margin-top: 80px;">
         <button wire:click="exportToPDF" style="padding: 8px 16px; background-color: #e74c3c; color: white;">Download PDF</button>
       </div>
 

@@ -37,4 +37,9 @@ class LecturerController extends Controller
         return view('lecturer.rescheduling-form', compact ('appointment_id'));
     }
 
+    public function loadReasonForm($id)
+    {
+        $appointment_id = $id;
+        return view('lecturer.reason-form', compact ('appointment_id'));
+    }
 }

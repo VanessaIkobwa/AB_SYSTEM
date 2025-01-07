@@ -29,6 +29,19 @@ Route::group(['middleware' => 'student'],function()
       //   Reschedule
       Route::get('/student/reschedule/{appointment_id}',[StudentController::class,'loadReschedulingForm']);
 
+      //cancelation reason
+
+      Route::get('/student/reason/{appointment_id}',[StudentController::class,'loadReasonForm'])
+      ->name('student-reason-form');
+
+      //booking reason
+
+      Route::get('/student/bookingreason/{appointment_id}',[StudentController::class,'loadBookingReasonForm'])
+      ->name('student-bookingreason-form');
+
+
+
+
 });
 
 Route::view('profile', 'profile')
@@ -57,6 +70,11 @@ Route::group(['middleware' => 'lecturer'],function()
       Route::get('/lecturer/reschedule/{appointment_id}',[LecturerController::class,'loadReschedulingForm']);
     
    
+      //cancelation reason
+      Route::get('/lecturer/reason/{appointment_id}',[LecturerController::class,'loadReasonForm'])
+      ->name('lecturer-reason-form');
+
+    
 });
 
 //admin

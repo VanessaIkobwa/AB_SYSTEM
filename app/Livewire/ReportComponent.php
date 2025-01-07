@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\AppointmentsExport; // Custom export class for Excel
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -18,6 +19,8 @@ class ReportComponent extends Component
     public $appointmentsData = [];
     public $dailyAppointmentsData = [];
     public $appointmentsByLecturerData =[];
+    public $appointmentStatusData = [];
+    public $hourlyAppointmentsData = [];
 
     public function mount()
     {
@@ -29,6 +32,9 @@ class ReportComponent extends Component
 
          // Call method to get appointments by lecturer
         $this->appointmentsByLecturerData = $this->getAppointmentsByLecturer();
+
+        $this->appointmentStatusData = $this->getAppointmentStatus();
+
     }
 
     public function getAppointmentsPerMonth()
@@ -86,6 +92,14 @@ class ReportComponent extends Component
         return $appointmentsByLecturer->pluck('count', 'lecturer_name')->toArray();
     }
 
+    public function getAppointmentStatus()
+    {
+        // Fetch the counts of completed and pending appointments
+        return [
+            'completed' => Appointment::where('is_complete', true)->count(),
+            'pending' => Appointment::where('is_complete', false)->count(),
+        ];
+    }
 
     //export to pdf
     public function exportToPDF()
@@ -135,6 +149,8 @@ class ReportComponent extends Component
             'appointmentsData' => $this->appointmentsData,
             'dailyAppointmentsData' => $this->dailyAppointmentsData,
             'appointmentsByLecturerData' => $this->appointmentsByLecturerData, 
+            'appointmentStatusData' => $this->appointmentStatusData,
+            
         ]);
     }
 }

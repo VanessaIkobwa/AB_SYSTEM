@@ -74,17 +74,16 @@
                     </span>
                   </div>
                 </th>
- 
+
                 <th scope="col" class="px-6 py-3 text-start">
                   <div class="flex items-center gap-x-2">
                     <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                    Action
+                      Status
                     </span>
                   </div>
                 </th>
-
-
-
+ 
+               
               </tr>
             </thead>
 
@@ -102,7 +101,7 @@
                                 <td class="size-px whitespace-nowrap align-top">
                                     <a class="block p-6" href="#">
                                     <div class="flex items-center gap-x-4">
-                                        <img class="shrink-0 size-[38px] rounded-lg" src="https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=320&q=80" alt="Product Image">
+                                        <img class="shrink-0 size-[38px] rounded-lg" src="{{asset('user4.jpeg')}}" alt="Product Image">
                                         <div>
                                         <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$appointment->student->name}}</span>
                                         </div>
@@ -119,7 +118,7 @@
                                 <td class="size-px whitespace-nowrap align-top">
                                     <a class="block p-6" href="#">
                                     <div class="flex items-center gap-x-3">
-                                        <img class="inline-block size-[38px] rounded-full" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Product Image">
+                                        <img class="inline-block size-[38px] rounded-full" src="{{asset('user5.jpeg')}}" alt="Product Image">
                                         <div class="grow">
                                         <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$appointment->lecturer->lecturerUser->name}}</span>
                                         <span class="block text-sm text-gray-500 dark:text-neutral-500">{{$appointment->lecturer->lecturerUser->email}}</span>
@@ -163,6 +162,10 @@
                                 </div>
                                 </td>
 
+
+                              
+
+                                
                                 <!--RESCHEDULING AND CANCELLING-->
                                 <td class="size-px whitespace-nowrap align-top">
                                 <div class="flex items-center gap-x-2 py-7">
@@ -185,7 +188,7 @@
                                     </svg>
                                   </a>
                             @endif
-                                   <!-- Cancellation Reason Input -->
+                                   <!-- Cancellation  -->
                             <button class="bg-red-500 rounded text-white p-1 ml-3" wire:click="cancel({{$appointment->id}})" wire:confirm="Are you sure you want to cancel the appointment?">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />

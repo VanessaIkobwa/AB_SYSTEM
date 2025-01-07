@@ -42,5 +42,15 @@ class StudentController extends Controller
         return view('student.rescheduling-form', compact ('appointment_id'));
     }
 
+    public function loadReasonForm($id)
+    {
+        $appointment_id = $id;
+        return view('student.reason-form', compact ('appointment_id'));
+    }
+    public function loadBookingReasonForm($id)
+    {
+        return view('student.bookingreason-form', ['appointment_id' => $id]);
+    }
+    
     
 }
